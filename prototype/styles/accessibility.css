@@ -1,0 +1,444 @@
+/* ==========================================================================
+   NAGRIK SEWA — Accessibility Stylesheet
+   WCAG 2.1 AA Compliance Utilities
+   ========================================================================== */
+
+/* ============================================================
+   1. SKIP TO CONTENT LINK
+   ============================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: var(--z-skip);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-gold);
+  color: var(--color-crimson-dark);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border: 3px solid var(--color-crimson-dark);
+  border-top: none;
+  transition: top var(--transition-fast);
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--color-crimson-dark);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   2. GLOBAL FOCUS STYLES
+   Thick, visible focus rings for all interactive elements
+   ============================================================ */
+
+/* Remove default outline, replace with consistent custom ring */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Specific elements needing customized focus */
+a:focus-visible {
+  outline-color: var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 0;
+  border-color: var(--color-crimson);
+}
+
+/* Dark-surface focus (inside header/footer) */
+.site-header *:focus-visible,
+.site-footer *:focus-visible {
+  outline-color: var(--color-gold);
+}
+
+/* ============================================================
+   3. VISUALLY HIDDEN (Screen reader only)
+   ============================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   4. ARIA LIVE REGION UTILITIES
+   ============================================================ */
+
+/* Hidden live regions for dynamic content announcements */
+.live-region {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   5. HIGH CONTRAST TOGGLE SWITCH (in accessibility panel)
+   ============================================================ */
+
+.a11y-panel-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  width: 100%;
+  background: var(--color-white);
+}
+
+.a11y-panel-toggle:hover {
+  background: var(--color-gray-50);
+}
+
+.a11y-panel-toggle__label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-gray-700);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.a11y-panel-toggle__sublabel {
+  font-size: var(--fs-xs);
+  color: var(--color-gray-500);
+  font-weight: var(--fw-regular);
+  font-family: var(--font-family-devanagari);
+}
+
+/* Mini toggle UI */
+.mini-toggle {
+  width: 36px;
+  height: 20px;
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color var(--transition-base);
+}
+
+.mini-toggle::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--color-white);
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.mini-toggle.on {
+  background: var(--color-crimson);
+}
+
+.mini-toggle.on::after {
+  transform: translateX(16px);
+}
+
+/* ============================================================
+   6. HIGH CONTRAST MODE OVERRIDES
+   ============================================================ */
+
+body.high-contrast {
+  /* Colors */
+  --color-crimson:        #FF0000;
+  --color-crimson-dark:   #CC0000;
+  --color-crimson-pale:   #FFE0E0;
+  --color-gold:           #FFD700;
+  --color-gold-light:     #FFE44D;
+  --color-gray-50:        #FFFFFF;
+  --color-gray-100:       #F5F5F5;
+  --color-gray-200:       #CCCCCC;
+  --color-gray-300:       #AAAAAA;
+  --color-gray-400:       #888888;
+  --color-gray-500:       #666666;
+  --color-gray-600:       #444444;
+  --color-gray-700:       #222222;
+  --color-gray-800:       #111111;
+  --color-gray-900:       #000000;
+  --color-white:          #FFFFFF;
+  --color-success:        #006600;
+  --color-danger:         #CC0000;
+  --color-info:           #0000BB;
+  --color-warning:        #996600;
+}
+
+body.high-contrast {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+body.high-contrast .site-header {
+  background: #000000;
+  border-bottom: 3px solid #FFD700;
+}
+
+body.high-contrast .gov-topbar {
+  background: #220000;
+  border-bottom: 2px solid #FFD700;
+}
+
+body.high-contrast .nav-links__item,
+body.high-contrast .mobile-nav__item {
+  color: #FFFFFF;
+}
+
+body.high-contrast .nav-links__item:hover,
+body.high-contrast .nav-links__item.active {
+  background: #FFD700;
+  color: #000000;
+}
+
+body.high-contrast .hero {
+  background: #220000;
+}
+
+body.high-contrast .service-card {
+  border: 2px solid #000000;
+  background: #FFFFFF;
+}
+
+body.high-contrast .service-card:hover {
+  border-color: #FF0000;
+  outline: 2px solid #FF0000;
+}
+
+body.high-contrast .btn--primary {
+  background: #CC0000;
+  border: 2px solid #000000;
+}
+
+body.high-contrast .btn--secondary {
+  border: 2px solid #CC0000;
+  color: #CC0000;
+}
+
+body.high-contrast .btn--ghost {
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+body.high-contrast .form-input,
+body.high-contrast .form-select,
+body.high-contrast .form-textarea {
+  border: 2px solid #000000;
+}
+
+body.high-contrast .form-input:focus,
+body.high-contrast .form-select:focus,
+body.high-contrast .form-textarea:focus {
+  border-color: #CC0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.4);
+}
+
+body.high-contrast .badge--primary {
+  background: #FFE0E0;
+  color: #CC0000;
+  border: 1px solid #CC0000;
+}
+
+body.high-contrast .badge--success {
+  background: #E0FFE0;
+  color: #006600;
+  border: 1px solid #006600;
+}
+
+body.high-contrast .site-footer {
+  background: #111111;
+  border-top: 3px solid #FFD700;
+}
+
+body.high-contrast a {
+  color: #0000CC;
+  text-decoration: underline;
+}
+
+body.high-contrast a:hover {
+  color: #000099;
+}
+
+body.high-contrast *:focus-visible {
+  outline: 4px solid #000000 !important;
+  outline-offset: 3px !important;
+}
+
+/* ============================================================
+   7. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Preserve meaningful visual feedback */
+  .btn:hover { transform: none; }
+  .service-card:hover { transform: none; }
+  .card--clickable:hover { transform: none; }
+}
+
+/* ============================================================
+   8. KEYBOARD NAVIGATION HELPERS
+   ============================================================ */
+
+/* Show focus outline ONLY when using keyboard */
+.js-focus-visible *:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Roving tabindex containers */
+[role="tablist"] [role="tab"]:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  z-index: 1;
+  position: relative;
+}
+
+[role="menu"] [role="menuitem"]:focus-visible {
+  background: var(--color-crimson-pale);
+  outline: 2px solid var(--color-crimson);
+  outline-offset: -2px;
+}
+
+/* ============================================================
+   9. TOUCH TARGET MINIMUM SIZES (44×44 px per WCAG 2.5.5)
+   ============================================================ */
+
+.btn,
+[role="button"],
+button,
+a,
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px;
+}
+
+/* Override for inline links that shouldn't be 44px tall */
+p a,
+.footer-links__list a,
+.gov-topbar__links a,
+.breadcrumb a {
+  min-height: unset;
+}
+
+.pagination__btn,
+.lang-toggle__btn,
+.font-size-btn {
+  min-height: 44px;
+}
+
+/* ============================================================
+   10. COLOR NOT ONLY INDICATOR
+   Always pair color with text label, icon, or pattern
+   ============================================================ */
+
+/* Form error — not just red border but also icon + text */
+.form-input.error::before {
+  /* handled in HTML with explicit error text */
+}
+
+/* Status badges always have text label (not just color) */
+/* Timeline dots always have text descriptions */
+
+/* ============================================================
+   11. TEXT SPACING SUPPORT (WCAG 1.4.12)
+   Ensure content is not cut off when user overrides text spacing
+   ============================================================ */
+
+* {
+  /* Allow overrides without breaking layout */
+  overflow: clip;
+  overflow: unset;
+}
+
+.card,
+.alert,
+.badge,
+.btn {
+  overflow: visible;
+}
+
+/* ============================================================
+   12. PRINT STYLES
+   ============================================================ */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .nav-actions,
+  .btn,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .page-section {
+    display: block !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  .hero {
+    background: #fff;
+    color: #000;
+    padding: 0;
+  }
+}

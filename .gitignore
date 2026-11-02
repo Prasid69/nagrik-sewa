@@ -1,0 +1,34 @@
+# .gitignore for Nagrik Sewa UI/UX Project
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if any tooling added later)
+node_modules/
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+
+# Temp files
+*.tmp
+*.bak
+*.orig
+
+# Figma exports (add manually, don't auto-ignore)
+# *.fig
+
+# Large asset folders (manage separately)
+# assets/videos/
+

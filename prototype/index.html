@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nagrik Sewa — Citizen Digital Services Portal for Nepal. A UI/UX design case study." />
+  <title>नागरिक सेवा | Nagrik Sewa — Citizen Services Portal</title>
+
+  <!-- Noto Sans Devanagari for Nepali text (local / bundled) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/accessibility.css" />
+</head>
+<body>
+
+  <!-- Skip to main content (accessibility) -->
+  <a class="skip-link" href="#main-content">Skip to main content / मुख्य सामग्रीमा जानुस्</a>
+
+  <!-- Screen-reader live region -->
+  <div id="sr-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header class="site-header" role="banner">
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a href="#" class="site-logo" data-page="home" aria-label="Nagrik Sewa – Go to home page">
+        <div class="site-logo__emblem" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#8B0000"/>
+            <text x="18" y="24" text-anchor="middle" font-size="18" fill="white">🇳🇵</text>
+          </svg>
+        </div>
+        <div class="site-logo__text">
+          <span class="site-logo__np">नागरिक सेवा</span>
+          <span class="site-logo__en">Nagrik Sewa</span>
+        </div>
+      </a>
+
+      <!-- Primary Nav (desktop) -->
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="primary-nav__list" role="list">
+          <li><a href="#" class="primary-nav__link active" data-page="home" aria-current="page">Home</a></li>
+          <li><a href="#" class="primary-nav__link" data-page="catalog">Services</a></li>
+          <li><a href="#" class="primary-nav__link" data-page="apply">Apply</a></li>
+          <li><a href="#" class="primary-nav__link" data-page="status">Track Status</a></li>
+          <li><a href="#" class="primary-nav__link" data-page="components">Components</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Bar -->
+      <div class="header-utils" role="toolbar" aria-label="Accessibility and language tools">
+
+        <!-- Language Toggle -->
+        <button id="lang-toggle" class="util-btn" aria-label="Switch to Nepali language">
+          नेपाली
+        </button>
+
+        <!-- Font Size Controls -->
+        <div class="font-size-controls" role="group" aria-label="Adjust text size">
+          <button id="font-sm" class="util-btn font-btn" aria-label="Small text" aria-pressed="false" title="Small text">A</button>
+          <button id="font-md" class="util-btn font-btn font-btn--active" aria-label="Medium text (default)" aria-pressed="true" title="Medium text">A</button>
+          <button id="font-lg" class="util-btn font-btn" aria-label="Large text" aria-pressed="false" title="Large text">A</button>
+        </div>
+
+        <!-- High Contrast Toggle -->
+        <button id="hc-toggle" class="util-btn" aria-label="Toggle high contrast mode" aria-pressed="false" title="High Contrast">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- Login Button -->
+        <button id="login-btn" class="btn btn--primary btn--sm">Login / Register</button>
+
+        <!-- Mobile menu toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleMobileMenu()">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#" class="mobile-nav__link" data-page="home" onclick="toggleMobileMenu()">🏠 Home / गृहपृष्ठ</a></li>
+        <li><a href="#" class="mobile-nav__link" data-page="catalog" onclick="toggleMobileMenu()">📋 Services / सेवाहरू</a></li>
+        <li><a href="#" class="mobile-nav__link" data-page="apply" onclick="toggleMobileMenu()">📝 Apply / आवेदन</a></li>
+        <li><a href="#" class="mobile-nav__link" data-page="status" onclick="toggleMobileMenu()">📍 Track Status / स्थिति</a></li>
+        <li><a href="#" class="mobile-nav__link" data-page="components" onclick="toggleMobileMenu()">🧩 Components</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────────── -->
+  <main id="main-content" tabindex="-1" aria-label="Main content">
+    <!-- Populated by JavaScript -->
+    <div style="text-align:center;padding:80px 20px;color:#666">
+      <p>Loading Nagrik Sewa…</p>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <div class="site-logo site-logo--footer">
+          <div class="site-logo__text">
+            <span class="site-logo__np">नागरिक सेवा</span>
+            <span class="site-logo__en">Nagrik Sewa · Government of Nepal</span>
+          </div>
+        </div>
+        <p class="footer__tagline">नागरिककै लागि · For the Citizens</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Quick Links</h3>
+        <ul class="footer__links" role="list">
+          <li><a href="#" data-page="home">Home</a></li>
+          <li><a href="#" data-page="catalog">Service Catalog</a></li>
+          <li><a href="#" data-page="status">Track Application</a></li>
+          <li><a href="#" data-page="components">Component Library</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Emergency Contacts</h3>
+        <ul class="footer__links" role="list">
+          <li>🚔 Police: <a href="tel:100">100</a></li>
+          <li>🚒 Fire: <a href="tel:101">101</a></li>
+          <li>🚑 Ambulance: <a href="tel:102">102</a></li>
+          <li>📞 Helpline: <a href="tel:1111">1111</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Accessibility</h3>
+        <ul class="footer__links" role="list">
+          <li>WCAG 2.1 AA Compliant</li>
+          <li>Screen Reader Supported</li>
+          <li>Keyboard Navigable</li>
+          <li>Low-Bandwidth Optimised</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2081 B.S. (2024 A.D.) Government of Nepal · All Rights Reserved</p>
+        <p class="footer__design-note">UX Case Study by <strong>Prasoddha Aryal</strong> · For SDOC Nepal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/prototype-nav.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mobile-nav');
+      const btn = document.getElementById('mobile-menu-btn');
+      const isOpen = nav.getAttribute('aria-hidden') === 'false';
+      nav.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      nav.classList.toggle('mobile-nav--open', !isOpen);
+    }
+  </script>
+</body>
+</html>
+

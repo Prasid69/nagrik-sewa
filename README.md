@@ -213,16 +213,7 @@ open index.html    # macOS
 | Usability testing & findings | `docs/04-usability-test-report.md` |
 | Developer specs & review | `docs/03-design-specifications.md`, `docs/05-implementation-review.md` |
 
----
 
-## 📬 Contact
-
-**Prasoddha Aryal**  
-UI/UX Designer  
-📧 your.email@example.com  
-🔗 [Portfolio](#) · [LinkedIn](#)
-
----
 
 <p align="center">
   <em>Designed with ❤️ for Nepal's citizens</em><br>
